@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #363224;
+    position: relative;
+
+    .header {
+        width: 100%;
+        height: auto;
+        background-color: #363224;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .header_imgs {
+            width: 40%;
+            height: auto;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding-left: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+
+            i {
+                font-size: 60px;
+                margin: 10px 0 10px 0;
+            }
+
+            img:first-child {
+                width: 90px;
+                height: 20%;
+                object-fit: contain;
+            }
+
+            img {
+                width: auto;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
+
+        .header_content {
+            width: 40%;
+            height: auto;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: x-large;
+            }
+        }
+
+        .header_icons {
+
+            i {
+                margin: 0 15px 0 15px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .mobile_header {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+        width: 100%;
+        padding: 30px 0;
+
+        .mb_menu {
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                font-size: 25px;
+                margin-left: 15px;
+                cursor: pointer;
+            }
+        }
+
+        .mb_logo {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // margin-left: 10px;
+            padding-left: 20px;
+
+            i {
+                font-size: 23px;
+            }
+
+            img {
+                width: 150px;
+                height: 35px;
+                object-fit: contain;
+            }
+
+            span {
+                color: white;
+                margin-left: 8px;
+                font-size: 20px;
+            }
+
+        }
+
+        .mb_card_search {
+            width: auto;
+            padding: 3px 10px;
+
+            i {
+                // margin: 0 5px;
+                font-size: 20px;
+                margin-right: 7px;
+            }
+        }
+
+    }
+
+    .main {
+        position: relative;
+        width: 100%;
+        background-color: #363224;
+
+        .main_box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+
+            .social_acc {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                width: 100%;
+                height: 50px;
+                padding-right: 5px;
+
+                i {
+                    margin: 5px;
+                    margin-top: 10px;
+                    font-size: 25px;
+                    margin-right: 10px;
+                }
+            }
+
+            .main_content {
+                width: 100%;
+                height: 70%;
+                margin-top: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                span {
+                    position: relative;
+                    color: white;
+                    padding-bottom: 15px;
+                    font-size: 50px;
+                    width: 50%;
+                    text-align: center;
+                }
+
+                span::after {
+                    position: absolute;
+                    content: '';
+                    width: 17%;
+                    height: 3px;
+                    background-color: #fbb860;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+
+            .main_button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    background-color: #161513;
+                    // background-color: #292721;
+                    padding: 5px;
+                    border-radius: 50px;
+                    margin: 0 5px;
+                    margin-bottom: 10px;
+                    border: 2px solid #fbb860;
+                    width: 70px;
+                    height: 70px;
+                    object-fit: contain;
+
+                }
+            }
+        }
+    }
+
+    .table_box {
+        width: 100%;
+        height: auto;
+        background-color: #363224;
+        overflow: hidden; // İçerik taşmasını engelle
+        transition: max-height 0.5s ease; // Geçiş süresi ayarlanıyor
+        max-height: 0; // Başlangıçta görünmez olmasını sağlıyor
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+
+        &.open {
+            // Açıldığında kullanılacak sınıf
+            max-height: 500px; // En yüksek boyut, içeriğin yüksekliğine göre ayarlanabilir
+        }
+
+        span {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fbb860;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 30px;
+                height: 2px;
+                background-color: #fbb860;
+                margin: 10px auto 0;
+            }
+        }
+
+        .table_numbers {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+
+            section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: auto;
+                height: auto;
+                border-radius: 50px;
+                padding: 5px 15px;
+
+                p {
+                    color: white;
+                }
+
+                .table {
+                    width: 40px;
+                    height: 40px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    .menu_content {
+        width: 100%;
+        padding: 20px;
+        background-color: #292721;
+        color: white;
+
+        .menu_title {
+            text-align: center;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fbb860;
+            position: relative;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 50px;
+                height: 4px;
+                background-color: #fbb860;
+                margin: 10px auto 0;
+            }
+        }
+
+        .menu_items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            .menu_item {
+                background-color: #3e3a32;
+                border-radius: 10px;
+                padding: 15px;
+                margin: 10px;
+                width: calc(50% - 20px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s;
+
+                h3 {
+                    font-size: 24px;
+                    color: #fbb860;
+                }
+
+                p {
+                    font-size: 16px;
+                    margin: 10px 0;
+                }
+
+                .price {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #fbb860;
+                }
+
+                .add_to_cart {
+                    // background-color: #fbb860;
+                    /* Buton rengi */
+                    color: white;
+                    /* Yazı rengi */
+                    border: none;
+                    border-radius: 5px;
+                    // padding: 5px 10px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    transition: background-color 0.3s;
+                    margin: 0 5px;
+                    text-align: end;
+                    width: 100%;
+
+                    &:hover {
+                        transform: scaleY(1.2);
+                        color: forestgreen;
+                        /* Hover rengi */
+                    }
+                }
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .footer {
+        width: 100%;
+        height: 300px;
+        background-color: #363224;
+    }
+
+    .menu_box {
+        width: 50%;
+        height: 100vh;
+        // border: 1px solid #fbb860;
+        background-color: #161513;
+        position: absolute;
+        top: 60px;
+        left: -100%; // Başlangıçta gizli
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        transition: left 0.5s ease; // Menünün konum geçişi
+        overflow-y: hidden; // İçerik taşarsa kaydırma çubuğu ekle
+
+        &.show {
+            left: 0; // Menüyü görünür hale getir
+        }
+
+        .header_content {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: start;
+            align-items: start;
+            flex-direction: column;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: x-large;
+                margin: 5px 0 5px 10px;
+
+                &:hover {
+                    color: #fbb860; // Hover efekti
+                }
+            }
+        }
+    }
+
+    .notification {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top: 45vh;
+        background-color: #292721;
+
+        p {
+            text-align: center;
+            color: white;
+        }
+    }
+
+    .order_box {
+        position: absolute;
+        left: 0;
+        top: -100%; // Initially hidden above the viewport
+        width: 100%;
+        height: 100vh;
+        background-color: #292721;
+        z-index: 1;
+        display: none; // Initially hidden
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+        transition: top 0.5s ease; // Transition for opening
+
+        &.show {
+            display: flex; // Display when visible
+            top: 0; // Show at the top of the viewport
+        }
+
+        .order_box_close {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            background-color: #161513;
+
+            i {
+                font-size: 20px;
+                padding: 10px;
+                cursor: pointer; // Add hover cursor pointer
+            }
+
+            span {
+                text-align: center;
+                color: white;
+                width: 100%;
+                padding-left: 15px;
+                font-style: italic;
+                font-size: 20px;
+            }
+        }
+
+        $primary-bg-color: #363224; // Beyaz arka plan rengi
+        $secondary-bg-color:#292721; // Hafif gri arka plan
+        $border-color: #dcdcdc; // Açık gri kenarlar
+        $hover-bg-color: #eee; // Hover durumu için açık gri
+        $button-bg-color: #4CAF50; // Yeşil buton
+        $button-hover-bg-color: darken($button-bg-color, 10%); // Hover için koyu yeşil
+        $text-color: #333; // Koyu gri yazı rengi
+        $remove-button-bg-color: #f44336; // Kırmızı çıkar butonu
+        $remove-button-hover-bg-color: darken($remove-button-bg-color, 10%); // Kırmızı çıkar butonu hover
+        
+        .order_foods {
+            background-color: $secondary-bg-color; // İkinci arka plan rengi
+            // border: 1px solid $border-color; // Kenar rengi
+            border-radius: 5px; // Kenar yuvarlama
+            padding: 20px; // İç boşluk
+            max-width: 400px; // Maksimum genişlik
+            margin: auto; // Ortada hizalama
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Gölge
+            overflow-y: auto; // Dikey kaydırıcı
+            max-height: 400px; // Maksimum yükseklik
+        
+            .cart_item {
+                background-color: $primary-bg-color; // Beyaz arka plan
+                // border: 1px solid $border-color; // Kenar rengi
+                border-radius: 5px; // Kenar yuvarlama
+                margin-bottom: 10px; // Alt boşluk
+                padding: 15px; // İç boşluk
+                display: flex; // Flexbox düzeni
+                justify-content: space-between; // Alan dağılımı
+                align-items: center; // Dikey ortalama
+                transition: background-color 0.3s; // Geçiş efekti
+        
+        
+                span {
+                    flex-grow: 1; // Alanın tamamını kaplama
+                    font-size: 16px; // Yazı boyutu
+                    color: white; // Yazı rengi
+        
+                    .quantity {
+                        font-weight: bold; // Kalın yazı
+                    }
+                }
+        
+                button {
+                    background-color:#fff; // Buton arka plan rengi
+                    color: black; // Yazı rengi
+                    border: none; // Kenar yok
+                    border-radius: 5px; // Kenar yuvarlama
+                    padding: 5px 10px; // İç boşluk
+                    cursor: pointer; // İmleç
+                    margin-left: 5px; // Sol boşluk
+                    transition: background-color 0.3s; // Geçiş efekti
+        
+                    &:hover {
+                        background-color: white; // Hover durumu
+                    }
+        
+                    &[class*="decrease_quantity"] {
+                        background-color: $remove-button-bg-color; // Kırmızı azaltma butonu
+                        &:hover {
+                            background-color: $remove-button-hover-bg-color; // Hover durumu
+                        }
+                    }
+                }
+            }
+        }
+
+        .foods_details {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                button {
+                    width: 45px;
+                    height: 35px;
+                    border-radius: 10px;
+                    background: #fbb860;
+                    border: none; // No border for buttons
+                    cursor: pointer; // Cursor pointer for buttons
+                    margin: 0 5px; // Space between buttons
+                }
+
+                p {
+                    color: white;
+                    margin-left: 35px;
+                }
+            }
+
+            section {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end; // Align to the right
+                align-items: center;
+
+                button {
+                    width: 45px;
+                    height: 35px;
+                    border-radius: 10px;
+                    background: #fbb860;
+                    margin: 0 10px; // Space between buttons
+                    border: none; // No border for buttons
+                    cursor: pointer; // Cursor pointer for buttons
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 390px) and (max-width: 409px) {
+    .container {
+        .header {
+            display: none;
+        }
+
+        .mobile_header {
+            display: flex;
+        }
+
+        .main {
+            .main_box {
+                .main_content {
+                    width: 100%;
+                    height: 70%;
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    span {
+                        position: relative;
+                        color: white;
+                        padding-bottom: 15px;
+                        font-size: 20px;
+                        width: 50%;
+                        text-align: center;
+                    }
+
+                    span::after {
+                        position: absolute;
+                        content: '';
+                        width: 17%;
+                        height: 3px;
+                        background-color: #fbb860;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                }
+
+                .main_button {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        background-color: #161513;
+                        // background-color: #292721;
+                        padding: 5px;
+                        border-radius: 50px;
+                        margin: 0 5px;
+                        margin-bottom: 10px;
+                        border: 2px solid #fbb860;
+                        width: 50px;
+                        height: 50px;
+                        object-fit: contain;
+
+                    }
+                }
+            }
+        }
+    }
+}

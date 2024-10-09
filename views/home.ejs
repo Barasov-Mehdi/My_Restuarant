@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Ez Hotel & Restuarant</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/home.js"></script>
+
+<body>
+
+    <section class="container">
+        <header class="header">
+            <section class="header_imgs">
+                <!-- <img src="../images/hat-chef-svgrepo-com.svg" alt=""> -->
+                <i class="fas fa-utensils" style="color: white;"></i>
+                <img src="../images/sufre_logo.png" alt="">
+            </section>
+            <section class="header_content">
+                <a href="#">Home</a>
+                <a href="#">Menu</a>
+                <a href="#">Waiter</a>
+                <a href="#">Vacancy</a>
+                <a href="#">Contact</a>
+            </section>
+            <section class="header_icons">
+                <i class="fas fa-shopping-cart order_btn" style="color: white;"></i>
+                <!-- <i class="fa-solid fa-magnifying-glass" style="color: white;"></i> -->
+            </section>
+        </header>
+
+        <section class="mobile_header">
+            <section class="mb_menu">
+                <i class="fa-solid fa-bars menu_open_close" style="color: white;"></i>
+            </section>
+            <section class="mb_logo">
+                <i class="fas fa-utensils" style="color: white;"></i>
+                <!-- <img src="../images/sufre_logo.png" alt=""> -->
+                <span>Ez Hotel & Restuarant</span>
+            </section>
+            <section class="mb_card_search">
+                <section class="header_icons">
+                    <i class="fas fa-shopping-cart order_btn" style="color: white;"></i>
+                    <!-- <i class="fa-solid fa-magnifying-glass" style="color: white;"></i> -->
+                </section>
+            </section>
+        </section>
+
+        <main class="main">
+            <section class="main_box">
+                <div class="social_acc">
+                    <i class="fab fa-whatsapp" style="color: #25d366;"></i>
+                    <i class="fab fa-instagram" style="color: #fd01a9;"></i>
+                </div>
+                <div class="main_content">
+                    <span>
+                        Gündəlik həyatın dadını dəyişirik!
+                    </span>
+                </div>
+                <div class="main_button">
+                    <!-- <i class="fa-solid fa-scroll" style="color: #63E6BE;"></i> -->
+                    <!-- <i class="fa-solid fa-bell-concierge" style="color: gold;"></i> -->
+                    <img src="../images/garson.png" alt="">
+                </div>
+            </section>
+            <video src="../images/bg_video3.mp4" width="100%" autoplay="" loop="" muted="" playsinline=""></video>
+        </main>
+
+        <section class="table_box">
+            <span>Masa</span>
+            <section class="table_numbers">
+                <section onclick="callGarson(1)">
+                    <p>1</p>
+                    <img class="table" src="../images/tables2.png" alt="" />
+                </section>
+                <section onclick="callGarson(2)">
+                    <p>2</p>
+                    <img class="table" src="../images/tables2.png" alt="" />
+                </section>
+                <section onclick="callGarson(3)">
+                    <p>3</p>
+                    <img class="table" src="../images/tables2.png" alt="" />
+                </section>
+                <section onclick="callGarson(4)">
+                    <p>4</p>
+                    <img class="table" src="../images/tables2.png" alt="" />
+                </section>
+                <section onclick="callGarson(5)">
+                    <p>5</p>
+                    <img class="table" src="../images/tables2.png" alt="" />
+                </section>
+
+            </section>
+        </section>
+
+        <section class="menu_content">
+            <h2 class="menu_title">Menumuz</h2>
+            <div class="menu_items">
+                <!-- Menu items will be dynamically added here by the JavaScript -->
+            </div>
+        </section>
+
+        <footer class="footer">
+
+        </footer>
+
+        <section class="menu_box">
+            <section class="header_content">
+                <a href="#">Home</a>
+                <a href="#">Menu</a>
+                <a href="#">Waiter</a>
+                <a href="#">Vacancy</a>
+                <a href="#">Contact</a>
+            </section>
+        </section>
+
+        <section class="notification" style="display: none;">
+            <p id="notificationMessage" style="font-size: 1.5em;"></p>
+        </section>
+
+        <section class="order_box">
+
+            <div class="order_box_close">
+                <span>Səbətə atdıqlarım</span>
+                <i class="fa-solid fa-xmark order_close" style="color: white;"></i>
+            </div>
+
+            <div class="order_foods">
+
+            </div>
+
+            <div class="foods_details">
+                <div>
+                    <!-- <button class="decrease_order">-</button>
+                    <button class="increase_order">+</button> -->
+                    <p class="total_price">0₼</p>
+                </div>
+                <section>
+                    <button class="clear_cart">Clear</button>
+                </section>
+            </div>
+        </section>
+
+    </section>
+    <script src="../js/foods.js"></script>
+
+    <script>
+        var order_box = document.querySelector('.order_box');
+        var order_btn = document.querySelectorAll('.order_btn');
+
+        // Başlangıçta gizle
+        order_box.style.display = 'none';
+
+        order_btn.forEach(e => {
+            e.addEventListener('click', () => {
+                // order_box görünür hale getir
+                order_box.style.display = 'flex'; // Display flex olarak ayarla
+                setTimeout(() => {
+                    order_box.classList.add('show'); // show sınıfını ekle
+                }, 10); // Görünür hale geldikten sonra show sınıfını ekle
+            });
+        });
+
+        document.querySelector('.order_close').addEventListener('click', () => {
+            // show sınıfını kaldır ve gizle
+            order_box.classList.remove('show');
+            setTimeout(() => {
+                order_box.style.display = 'none'; // Display'i none yap
+            }, 500); // Animasyon süresi kadar bekle
+        });
+    </script>
+
+</body>
+
+</html>
